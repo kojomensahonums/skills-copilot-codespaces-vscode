@@ -1,15 +1,20 @@
-// // Create web browser
-// // http://localhost:3000/comments
+// Create web server
 
-// var express = require('express');
-// var router = express.Router();
+// Import modules
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const Comment = require('./models/Comment');
 
-// // Import the model
-// var Comment = require('../models/comment');
+// Setup server
+const app = express();
+const router = express.Router();
+const port = 4000;
 
-// // Create a comment
-// router.post('/', function(req, res) {
-//   // Create a new comment using the Comment model
-//   var comment = new Comment({
-//     content: req.body.content,});
-//   });
+// Setup middleware
+app.use(cors());
+app.use(bodyParser.json());
+
+// Connect to MongoDB
+mongoose.connect('mongodb://endpoint:27017/comments', { useNewUrlParser: true });
