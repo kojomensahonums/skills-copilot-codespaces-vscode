@@ -11,4 +11,5 @@ var Comment = require('../models/comment');
 router.post('/', function(req, res) {
   // Create a new comment using the Comment model
   var comment = new Comment({
-    content: req.body.content,
+    content: req.body.content,});
+  });
